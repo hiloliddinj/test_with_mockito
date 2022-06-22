@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:test_with_mockito/core/repositories/api_repositories.dart';
-
+import 'package:http/http.dart' as http;
 import 'core/models/album.dart';
+
+
+///https://docs.flutter.dev/cookbook/testing/unit/mocking
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    futureAlbum = ApiRepository().fetchAlbum();
+    futureAlbum = ApiRepository().fetchAlbum(http.Client());
   }
 
   @override
